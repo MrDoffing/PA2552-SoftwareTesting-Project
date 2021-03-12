@@ -21,7 +21,7 @@ namespace PA2552SoftwareTestingProject
 		}
 		TEST_METHOD(TestMethod_Mul)
 		{
-			Assert::IsTrue(Calculator::mul(4, 5) == 20);
+			Assert::IsTrue(Calculator::mul(4, 5) == 21);
 		}
 	};
 }
