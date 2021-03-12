@@ -19,5 +19,9 @@ namespace PA2552SoftwareTestingProject
 			Assert::IsTrue(Calculator::sub(3, 4) == -1);
 			Assert::IsTrue(Calculator::sub(5, -1) == 6);
 		}
+		TEST_METHOD(TestMethod_Mul)
+		{
+			Assert::IsTrue(Calculator::mul(4, 5) == 20);
+		}
 	};
 }

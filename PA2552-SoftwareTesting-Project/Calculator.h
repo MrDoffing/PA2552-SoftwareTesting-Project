@@ -7,5 +7,7 @@ public:
 
 	static int sub(const int& v1, const int& v2);
 
+	static int mul(const int& v1, const int& v2);
+
 };
 

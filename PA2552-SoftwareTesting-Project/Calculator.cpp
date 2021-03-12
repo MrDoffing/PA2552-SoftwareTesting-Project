@@ -10,3 +10,8 @@ int Calculator::sub(const int& v1, const int& v2)
 {
     return v1 - v2;
 }
+
+int Calculator::mul(const int& v1, const int& v2)
+{
+    return v1*v2;
+}
