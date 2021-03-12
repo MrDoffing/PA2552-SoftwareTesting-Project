@@ -18,11 +18,11 @@ namespace PA2552SoftwareTestingProject
 			Logger::WriteMessage("In Class Cleanup");
 		}
 
-		TEST_METHOD_INITIALIZE(methodName)
+		TEST_METHOD_INITIALIZE(MethodInitialize)
 		{
 			Logger::WriteMessage("In Method Initialize");
 		}
-		TEST_METHOD_CLEANUP(methodName)
+		TEST_METHOD_CLEANUP(MethodCleanup)
 		{
 			Logger::WriteMessage("In Method Cleanup");
 		}
