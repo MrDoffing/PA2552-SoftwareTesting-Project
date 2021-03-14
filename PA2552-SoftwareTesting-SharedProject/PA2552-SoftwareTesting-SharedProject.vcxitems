@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{b2964b59-5957-41dd-b935-0eee04a1c714}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Inventory.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Item.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Server.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)User.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Inventory.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Item.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Server.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)User.cpp" />
+  </ItemGroup>
+</Project>

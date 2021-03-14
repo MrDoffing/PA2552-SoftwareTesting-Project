@@ -3,9 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PA2552-SoftwareTesting-Project", "PA2552-SoftwareTesting-Project\PA2552-SoftwareTesting-Project.vcxproj", "{D2477E78-7924-4B62-A743-62BBAB4B8C1A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PA2552-SoftwareTesting-Project-Testing", "PA2552-SoftwareTesting-Project\PA2552-SoftwareTesting-Project.vcxproj", "{D2477E78-7924-4B62-A743-62BBAB4B8C1A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PA2552-SoftwareTesting-Project-Application", "PA2552-SoftwareTesting-Project-Application\PA2552-SoftwareTesting-Project-Application.vcxproj", "{3F970869-8221-4A23-8988-659ABABB742B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PA2552-SoftwareTesting-SharedProject", "PA2552-SoftwareTesting-SharedProject\PA2552-SoftwareTesting-SharedProject.vcxitems", "{B2964B59-5957-41DD-B935-0EEE04A1C714}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		PA2552-SoftwareTesting-SharedProject\PA2552-SoftwareTesting-SharedProject.vcxitems*{3f970869-8221-4a23-8988-659ababb742b}*SharedItemsImports = 4
+		PA2552-SoftwareTesting-SharedProject\PA2552-SoftwareTesting-SharedProject.vcxitems*{b2964b59-5957-41dd-b935-0eee04a1c714}*SharedItemsImports = 9
+		PA2552-SoftwareTesting-SharedProject\PA2552-SoftwareTesting-SharedProject.vcxitems*{d2477e78-7924-4b62-a743-62bbab4b8c1a}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -21,6 +30,14 @@ Global
 		{D2477E78-7924-4B62-A743-62BBAB4B8C1A}.Release|x64.Build.0 = Release|x64
 		{D2477E78-7924-4B62-A743-62BBAB4B8C1A}.Release|x86.ActiveCfg = Release|Win32
 		{D2477E78-7924-4B62-A743-62BBAB4B8C1A}.Release|x86.Build.0 = Release|Win32
+		{3F970869-8221-4A23-8988-659ABABB742B}.Debug|x64.ActiveCfg = Debug|x64
+		{3F970869-8221-4A23-8988-659ABABB742B}.Debug|x64.Build.0 = Debug|x64
+		{3F970869-8221-4A23-8988-659ABABB742B}.Debug|x86.ActiveCfg = Debug|Win32
+		{3F970869-8221-4A23-8988-659ABABB742B}.Debug|x86.Build.0 = Debug|Win32
+		{3F970869-8221-4A23-8988-659ABABB742B}.Release|x64.ActiveCfg = Release|x64
+		{3F970869-8221-4A23-8988-659ABABB742B}.Release|x64.Build.0 = Release|x64
+		{3F970869-8221-4A23-8988-659ABABB742B}.Release|x86.ActiveCfg = Release|Win32
+		{3F970869-8221-4A23-8988-659ABABB742B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
