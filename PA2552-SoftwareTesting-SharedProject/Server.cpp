@@ -74,7 +74,7 @@ bool Server::buy(UserID uid, ItemID iid)
 	readUser(uid, user);
 	Item* ptr_item = inventory.get(iid);
 	// pay
-	if (user.withdraw(ptr_item->getPrice()+1)) {
+	if (user.withdraw(ptr_item->getPrice())) {
 		// transfer item
 		user.getInventory().push(inventory.pop(iid));
 		// update database
