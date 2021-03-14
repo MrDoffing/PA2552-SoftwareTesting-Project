@@ -123,8 +123,8 @@ namespace PA2552SoftwareTestingProject
 			Assert::IsTrue(server->fetchStorage(inv));
 			Assert::IsTrue(inv.size() == 0);
 
-			// buy item
-			server->buy("user0", "item0");
+			// sell item
+			server->sell("user0", "item0");
 
 			// validate
 			Assert::IsTrue(server->fetchUser("user0", user));
