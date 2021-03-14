@@ -48,7 +48,7 @@ namespace PA2552SoftwareTestingProject
 			// validate user properties
 			Assert::IsTrue(user.getUsername() == id); // same username
 			Assert::IsTrue(user.getBankValue() == 0); // no currency
-			Assert::IsTrue(user.getInventory().size() == 0); // no items
+			Assert::IsTrue(user.getInventory().size() == 0); // no items 
 		}
 		TEST_METHOD(TestMethod_createItemForUser)
 		{
