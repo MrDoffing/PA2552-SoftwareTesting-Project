@@ -105,7 +105,6 @@ namespace PA2552SoftwareTestingProject
 
 			Assert::IsTrue(server->fetchStorage(inv));
 			Assert::IsTrue(inv.size() == 0);
-			Assert::Fail();
 		}
 		TEST_METHOD(TestMethod_sell)
 		{
