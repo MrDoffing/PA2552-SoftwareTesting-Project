@@ -65,41 +65,64 @@ void Server::setPath(string path)
 	}
 }
 
-bool Server::buy(UserID uid, ItemID iid)
+bool Server::createItemForStorage(Item& item) const
 {
-	// collect
-	Inventory inventory;
-	readStorage(inventory);
-	User user;
-	readUser(uid, user);
-	Item* ptr_item = inventory.get(iid);
-	// pay
-	if (user.withdraw(ptr_item->getPrice())) {
-		// transfer item
-		user.getInventory().push(inventory.pop(iid));
-		// update database
-		writeStorage(inventory);
-		writeUser(user);
-		return true;
-	}
-	return false;
+	Inventory inv;
+	if (!readStorage(inv)) return false;
+	inv.push(item);
+	if (!writeStorage(inv)) return false;
+	return true;
 }
 
-void Server::sell(UserID uid, ItemID iid)
+bool Server::createItemForUser(UserID uid, Item& item) const
+{
+	//read user info
+	User user;
+	if (!readUser(uid, user)) return false;
+	// insert item to inventory
+	user.getInventory().push(item);
+	// write user to DB
+	if (!writeUser(user))return false;
+	return true;
+}
+
+bool Server::buy(UserID uid, ItemID iid) const
 {
 	// collect
 	Inventory inventory;
-	readStorage(inventory);
+	if (!readStorage(inventory)) return false;
 	User user;
-	readUser(uid, user);
+	if (!readUser(uid, user))return false;
+	Item* ptr_item = inventory.get(iid);
+	if (ptr_item != nullptr) {
+		// pay
+		if (user.withdraw(ptr_item->getPrice())) {
+			// transfer item
+			user.getInventory().push(inventory.pop(iid));
+			// update database
+			if (!writeStorage(inventory))return false;
+			if (!writeUser(user))return false;
+			return true;
+		}
+	}
+	return false; // didnt find user
+}
+
+bool Server::sell(UserID uid, ItemID iid) const
+{
+	// collect
+	Inventory inventory;
+	if (!readStorage(inventory)) return false;
+	User user;
+	if (!readUser(uid, user)) return false;
 	// transfer item
 	Item item = user.getInventory().pop(iid);
 	inventory.push(item);
 	// retrieve cash from item
 	user.deposit(item.getPrice());
 	// update database
-	writeStorage(inventory);
-	writeUser(user);
+	if (!writeStorage(inventory))return false;
+	if (!writeUser(user))return false;
 }
 
 bool Server::fetchUser(UserID uid, User& user) const
@@ -110,6 +133,12 @@ bool Server::fetchUser(UserID uid, User& user) const
 bool Server::createUser(UserID uid)
 {
 	User user(uid);
+	return writeUser(user);
+}
+
+bool Server::createUser(UserID uid, Cash cash)
+{
+	User user(uid, cash);
 	return writeUser(user);
 }
 
@@ -127,8 +156,9 @@ void Server::clear()
 
 Server::Server(string path)
 {
+	// set relative path
 	setPath(path);
-	// create if non exist
+	// create storage if non exist
 	Inventory inv;
 	if (readStorage(inv) == false)
 		writeStorage(inv);

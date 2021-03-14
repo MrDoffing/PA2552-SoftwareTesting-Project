@@ -11,8 +11,6 @@ private:
 	string m_relativePath;
 	const string m_str_storage = "storage.txt";
 
-public:
-
 	bool readUser(UserID uid, User& user) const;
 	bool writeUser(User& user) const;
 
@@ -22,11 +20,14 @@ public:
 	void setPath(string path);
 
 public:
-	bool buy(UserID uid, ItemID iid);
-	void sell(UserID uid, ItemID iid);
+	bool createItemForStorage(Item& item) const; // should exist but needed for testing
+	bool createItemForUser(UserID uid, Item& item) const;
+	bool buy(UserID uid, ItemID iid) const;
+	bool sell(UserID uid, ItemID iid) const;
 
 	bool fetchUser(UserID uid, User& user) const;
 	bool createUser(UserID uid);
+	bool createUser(UserID uid, Cash cash); // should exist but needed for testing
 
 	bool fetchStorage(Inventory& inventory) const;
 
