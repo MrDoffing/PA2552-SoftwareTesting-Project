@@ -123,6 +123,7 @@ bool Server::sell(UserID uid, ItemID iid) const
 	// update database
 	if (!writeStorage(inventory))return false;
 	if (!writeUser(user))return false;
+	return true;
 }
 
 bool Server::fetchUser(UserID uid, User& user) const
