@@ -73,7 +73,7 @@ namespace PA2552SoftwareTestingProject
 			Assert::IsTrue(user_after.getInventory()[0] == item); // the same item
 
 		}
-		TEST_METHOD(TestMethod_storage) 
+		TEST_METHOD(TestMethod_readAndWriteStorage) 
 		{
 			Logger::WriteMessage("InMethod - Read and Write Storage");
 

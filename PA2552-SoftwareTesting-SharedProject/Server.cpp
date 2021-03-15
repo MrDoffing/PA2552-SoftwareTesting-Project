@@ -67,11 +67,13 @@ void Server::setPath(string path)
 
 bool Server::createItemForStorage(Item& item) const
 {
-	Inventory inv;
+	/*Inventory inv;
 	if (!readStorage(inv)) return false;
 	inv.push(item);
 	if (!writeStorage(inv)) return false;
-	return true;
+	return true;*/
+
+	return false;
 }
 
 bool Server::createItemForUser(UserID uid, Item& item) const
